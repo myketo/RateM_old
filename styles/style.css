@@ -1,0 +1,10 @@
+.list table {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.list table td,
+.list table th {
+  border: 1px solid black;
+}
+
+/*# sourceMappingURL=style.css.map */
