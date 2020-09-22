@@ -8,17 +8,8 @@
     <title><?=$title?></title>
 </head>
 <body>
-    <div class='list'>
-        <table>
-            <tr>
-                <th>Artist</th>
-                <th>Rating</th>
-            </tr>
-            <tr>
-                <td>korWIN</td>
-                <td>10</td>
-            </tr>
-        </table>
+    <div class='index list'>
+        <?php require_once $subpage; ?>
     </div>
 </body>
 </html>

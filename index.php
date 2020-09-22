@@ -2,6 +2,12 @@
 require_once "includes/functions.php";
 require_once "includes/connect.php";
 
-$title = title();
+$url = parseUrl();
+$path = path($url);
 
-require_once page();
+$page = "{$path['dir']}/{$path['file']}";
+$subpage = "{$path['dir']}/{$path['subpage']}";
+
+$title = title($url);
+
+require_once $page;

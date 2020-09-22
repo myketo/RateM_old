@@ -8,26 +8,30 @@ function parseUrl()
 }
 
 
-function title()
+function title($url = [])
 {
     $default = "RateM";
 
-    if(!isset($_GET['url'])) return $default;
+    if(!isset($url[0])) return $default;
 
-    $url = parseUrl();
     return "$default | {$url[0]}";
 }
 
-
-function page()
+function path($url = [])
 {
-    $def_dir = "pages/home";
-    $def_file = "index.php";
-    $default = "$def_dir/$def_file";
+    $dir = "pages/home";
+    $file = "index.php";
+    $subpage = "{$url[0]}.php";
+    if(isset($url[0]) && file_exists("pages/{$url[0]}/$file")){
+        $dir = "pages/{$url[0]}";
+    }
 
-    if(!isset($_GET['url'])) return $default;
+    if(isset($url[1]) && file_exists("$dir/{$url[1]}.php")){
+        $subpage = "{$url[1]}.php";
+    }
 
-    $url = parseUrl();
-
-    return file_exists("pages/{$url[0]}/$def_file") ? "pages/{$url[0]}/$def_file" : $default;
+    return [
+        "dir" => $dir,
+        "file" => $file,
+        "subpage" => $subpage];
 }
