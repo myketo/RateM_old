@@ -2,6 +2,8 @@
 require_once "includes/functions.php";
 require_once "includes/connect.php";
 
+session_start();
+
 $url = parseUrl();
 $path = path($url);
 

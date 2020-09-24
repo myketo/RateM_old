@@ -1,11 +1,22 @@
 .list{
-    table{
+    display: flex;
+
+    .show{
         border: 1px solid black;
         border-collapse: collapse;
 
         td,
         th{
             border: 1px solid black;
+        }
+    }
+
+    .add{
+        display: flex;
+        flex-direction: column;
+
+        label{
+            margin: 5px 0;
         }
     }
 }

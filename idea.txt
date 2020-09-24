@@ -1,9 +1,8 @@
 RateM
 
->tworzenie własnej listy zespołów/artystów (dodawanie/usuwanie/edytowanie)
+>tworzenie własnej listy zespołów/artystów (~dodawanie~/usuwanie/edytowanie)
 >artysta+gatunek+ocena+więcej/mniej/neutral
 >statystyki/wykresy
->zespoły ze Spotify API (Search+Metadata) albo wprowadzane ręcznie
 >system oceniania
 >tworzenie kont użytkowników
 >porównywanie listy do innych użytkowników (po gatunkach albo artystach)
@@ -13,13 +12,8 @@ Tabele
 >users
     >id
     >name
->artists
-    >id
-    >name
-    !OR!
-    >SpotifyAPI
 >items
     >id
     >user_id
-    >artist_id
+    >artist
     >rating

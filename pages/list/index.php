@@ -8,7 +8,7 @@
     <title><?=$title?></title>
 </head>
 <body>
-    <div class='index list'>
+    <div class='list index'>
         <?php require_once $subpage; ?>
     </div>
 </body>

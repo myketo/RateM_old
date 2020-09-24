@@ -1,10 +1,28 @@
-.list table {
+.error_list {
+  color: red;
+}
+
+.success {
+  color: green;
+}
+
+.list {
+  display: flex;
+}
+.list .show {
   border: 1px solid black;
   border-collapse: collapse;
 }
-.list table td,
-.list table th {
+.list .show td,
+.list .show th {
   border: 1px solid black;
+}
+.list .add {
+  display: flex;
+  flex-direction: column;
+}
+.list .add label {
+  margin: 5px 0;
 }
 
 /*# sourceMappingURL=style.css.map */

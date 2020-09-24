@@ -1,5 +1,10 @@
 <?php
 
+function homePage(){
+    $url = "http://{$_SERVER['SERVER_NAME']}";
+    return $url .= $_SERVER['SERVER_NAME'] == "localhost" ? "/RateM" : "";
+}
+
 function parseUrl()
 {
     if(isset($_GET['url'])){
@@ -34,4 +39,15 @@ function path($url = [])
         "dir" => $dir,
         "file" => $file,
         "subpage" => $subpage];
+}
+
+function showErrors()
+{
+    if(!isset($_SESSION['errors']) || !count($_SESSION['errors'])) return;
+
+    echo "<ul class='error_list'>";
+    for($i = 0; $i < count($_SESSION['errors']); $i++) echo "<li class='error'>{$_SESSION['errors'][$i]}</li>";
+    echo "</ul>";
+
+    unset($_SESSION['errors']);
 }
