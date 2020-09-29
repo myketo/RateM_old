@@ -1,7 +1,4 @@
 <?php
-require_once "../connect.php";
-
-
 function checkForArtist($artist)
 {
     global $conn;
@@ -26,4 +23,19 @@ function addArtist($artist, $rating)
     mysqli_stmt_bind_param($stmt, "si", $artist, $rating);
 
     return mysqli_stmt_execute($stmt);
+}
+
+function getAllItems()
+{
+    global $conn;
+
+    $sql = "SELECT * FROM `items`;";
+    $result = mysqli_query($conn, $sql);
+
+    if(!$result) return;
+
+    $rows = [];
+    while($row = mysqli_fetch_array($result)) $rows[] = $row;
+
+    return $rows;
 }
