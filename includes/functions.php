@@ -41,8 +41,16 @@ function path($url = [])
         "subpage" => $subpage];
 }
 
-function showErrors()
+function showErrorAndSuccessMsg()
 {
+    // check for success msg
+    if(isset($_SESSION['success'])){
+        echo "<span class='success'>{$_SESSION['success']}</span>";
+        unset($_SESSION['success']);
+    }
+
+
+    // check for error msg
     if(!isset($_SESSION['errors']) || !count($_SESSION['errors'])) return;
 
     echo "<ul class='error_list'>";

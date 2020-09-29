@@ -20,7 +20,7 @@ if(empty($_POST['artist'])){
     die();
 }
 
-if(checkForArtist($_POST['artist'])){
+if(checkForArtistByName($_POST['artist'])){
     array_push($_SESSION['errors'], "This artist is already on your list");
 }
 
@@ -52,5 +52,6 @@ if(!addArtist($_POST['artist'], $_POST['rating'])){
 }
 
 // successfully added artist
-header("Location: " . homePage() . "/list/add?success");
+$_SESSION['success'] = "Successfully added a new artist to your list!";
+header("Location: " . homePage() . "/list/add");
 die();

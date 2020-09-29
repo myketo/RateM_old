@@ -12,7 +12,4 @@
     <input type='submit' name='submitAdd' value='Add'>
 </form>
 
-<?php
-    showErrors();
-    if(isset($_GET['success'])) echo "<span class='success'>Successfully added a new artist to your list!</span>";
-?>
+<?php showErrorAndSuccessMsg();
