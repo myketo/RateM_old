@@ -1,6 +1,7 @@
 <?php
 
-function homePage(){
+function homePage()
+{
     $url = "http://{$_SERVER['SERVER_NAME']}";
     return $url .= $_SERVER['SERVER_NAME'] == "localhost" ? "/RateM" : "";
 }

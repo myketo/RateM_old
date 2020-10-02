@@ -17,11 +17,13 @@
 .list .show th {
   border: 1px solid black;
 }
-.list .add {
+.list .add,
+.list .edit {
   display: flex;
   flex-direction: column;
 }
-.list .add label {
+.list .add label,
+.list .edit label {
   margin: 5px 0;
 }
 

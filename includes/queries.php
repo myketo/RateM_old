@@ -39,6 +39,18 @@ function addArtist($artist, $rating)
     return mysqli_stmt_execute($stmt);
 }
 
+function editArtist($id, $artist, $rating)
+{
+    global $conn;
+
+    $sql = "UPDATE `items` SET `artist` = ?, `rating` = ? WHERE `id` = ?";
+    $stmt = mysqli_stmt_init($conn);
+    mysqli_stmt_prepare($stmt, $sql);
+    mysqli_stmt_bind_param($stmt, "sii", $artist, $rating, $id);
+
+    return mysqli_stmt_execute($stmt);
+}
+
 function deleteArtist($id)
 {
     global $conn;
@@ -68,4 +80,23 @@ function getAllItems()
     }
 
     return $rows;
+}
+
+function getArtistById($id)
+{
+    global $conn;
+
+    $sql = "SELECT * FROM `items` WHERE `id` = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    mysqli_stmt_prepare($stmt, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    
+    if(!mysqli_num_rows($result)) return;
+
+    $item = mysqli_fetch_array($result);
+    if($item['rating'] == 0) $item['rating'] = "";
+    
+    return $item;
 }

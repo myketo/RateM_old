@@ -1,6 +1,6 @@
 RateM
 
->tworzenie własnej listy zespołów/artystów (~dodawanie~/usuwanie/edytowanie)
+>tworzenie własnej listy zespołów/artystów (~dodawanie~/~usuwanie~/edytowanie)
 >artysta+gatunek+ocena+więcej/mniej/neutral
 >statystyki/wykresy
 >system oceniania
