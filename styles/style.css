@@ -12,10 +12,15 @@
 .list .show {
   border: 1px solid black;
   border-collapse: collapse;
+  box-sizing: border-box;
 }
 .list .show td,
 .list .show th {
   border: 1px solid black;
+}
+.list .show td img.icon,
+.list .show th img.icon {
+  height: 20px;
 }
 .list .add,
 .list .edit {

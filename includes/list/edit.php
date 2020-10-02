@@ -15,6 +15,14 @@ $item = getArtistById($_POST['id']);
 $_SESSION['errors'] = [];
 
 
+// checking interest field
+if(empty($_POST['interest']) || ($_POST['interest'] < 1) || $_POST['interest'] > 3){
+    array_push($_SESSION['errors'], "An error occurred while editing an artist");
+    header("Location: " . homePage() . "/list/edit/{$_POST['id']}");
+    die();
+}
+
+
 // checking artist field
 if(empty($_POST['artist'])){
     array_push($_SESSION['errors'], "Artist field can not be empty");
@@ -47,7 +55,7 @@ if(count($_SESSION['errors'])){
 
 
 // failed to edit artist
-if(!editArtist($_POST['id'], $_POST['artist'], $_POST['rating'])){
+if(!editArtist($_POST['id'], $_POST['artist'], $_POST['rating'], $_POST['interest'])){
     array_push($_SESSION['errors'], "An error occurred while editing an artist");
     header("Location: " . homePage() . "/list/edit/{$_POST['id']}");
     die();

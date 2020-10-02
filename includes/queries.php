@@ -27,26 +27,26 @@ function checkForArtistById($id)
     return mysqli_num_rows($result);
 }
 
-function addArtist($artist, $rating)
+function addArtist($artist, $rating, $interest)
 {
     global $conn;
 
-    $sql = "INSERT INTO `items`(`artist`, `rating`) VALUES(?, ?);";
+    $sql = "INSERT INTO `items`(`artist`, `rating`, `interest`) VALUES(?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($stmt, $sql);
-    mysqli_stmt_bind_param($stmt, "si", $artist, $rating);
+    mysqli_stmt_bind_param($stmt, "sii", $artist, $rating, $interest);
 
     return mysqli_stmt_execute($stmt);
 }
 
-function editArtist($id, $artist, $rating)
+function editArtist($id, $artist, $rating, $interest)
 {
     global $conn;
 
-    $sql = "UPDATE `items` SET `artist` = ?, `rating` = ? WHERE `id` = ?";
+    $sql = "UPDATE `items` SET `artist` = ?, `rating` = ?, `interest` = ? WHERE `id` = ?";
     $stmt = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($stmt, $sql);
-    mysqli_stmt_bind_param($stmt, "sii", $artist, $rating, $id);
+    mysqli_stmt_bind_param($stmt, "siii", $artist, $rating, $interest, $id);
 
     return mysqli_stmt_execute($stmt);
 }
@@ -75,6 +75,7 @@ function getAllItems()
     $rows = [];
     while($row = mysqli_fetch_array($result))
     {
+        $row['interest'] = "assets/interest/{$row['interest']}.png";
         if($row['rating'] == 0) $row['rating'] = "";
         $rows[] = $row;
     }

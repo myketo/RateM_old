@@ -13,6 +13,15 @@ if(!isset($_POST['submitAdd'])){
 
 $_SESSION['errors'] = [];
 
+
+// checking interest field
+if(empty($_POST['interest']) || ($_POST['interest'] < 1) || $_POST['interest'] > 3){
+    array_push($_SESSION['errors'], "An error occurred while adding an artist");
+    header("Location: " . homePage() . "/list/add");
+    die();
+}
+
+
 // checking artist field
 if(empty($_POST['artist'])){
     array_push($_SESSION['errors'], "Artist field can not be empty");
@@ -45,7 +54,7 @@ if(count($_SESSION['errors'])){
 
 
 // failed to add artist
-if(!addArtist($_POST['artist'], $_POST['rating'])){
+if(!addArtist($_POST['artist'], $_POST['rating'], $_POST['interest'])){
     array_push($_SESSION['errors'], "An error occurred while adding an artist");
     header("Location: " . homePage() . "/list/add");
     die();
