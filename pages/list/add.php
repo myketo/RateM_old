@@ -18,6 +18,11 @@
         </select>
     </label>
 
+    <label for='comment'>
+        Comment: 
+        <textarea id='comment' name='comment' placeholder='Insert comment here...'></textarea>
+    </label>
+
     <input type='submit' name='submitAdd' value='Add'>
 </form>
 

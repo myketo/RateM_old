@@ -47,6 +47,10 @@ if(!empty($_POST['rating'])){
 }
 
 
+// checking comment field
+    // ?
+
+
 // check for errors
 if(count($_SESSION['errors'])){
     header("Location: " . homePage() . "/list/edit/{$_POST['id']}");
@@ -55,7 +59,7 @@ if(count($_SESSION['errors'])){
 
 
 // failed to edit artist
-if(!editArtist($_POST['id'], $_POST['artist'], $_POST['rating'], $_POST['interest'])){
+if(!editArtist($_POST['id'], $_POST['artist'], $_POST['rating'], $_POST['interest'], $_POST['comment'])){
     array_push($_SESSION['errors'], "An error occurred while editing an artist");
     header("Location: " . homePage() . "/list/edit/{$_POST['id']}");
     die();

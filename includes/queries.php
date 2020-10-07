@@ -27,26 +27,26 @@ function checkForArtistById($id)
     return mysqli_num_rows($result);
 }
 
-function addArtist($artist, $rating, $interest)
+function addArtist($artist, $rating, $interest, $comment)
 {
     global $conn;
 
-    $sql = "INSERT INTO `items`(`artist`, `rating`, `interest`) VALUES(?, ?, ?);";
+    $sql = "INSERT INTO `items`(`artist`, `rating`, `interest`, `comment`) VALUES(?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($stmt, $sql);
-    mysqli_stmt_bind_param($stmt, "sii", $artist, $rating, $interest);
+    mysqli_stmt_bind_param($stmt, "siis", $artist, $rating, $interest, $comment);
 
     return mysqli_stmt_execute($stmt);
 }
 
-function editArtist($id, $artist, $rating, $interest)
+function editArtist($id, $artist, $rating, $interest, $comment)
 {
     global $conn;
 
-    $sql = "UPDATE `items` SET `artist` = ?, `rating` = ?, `interest` = ? WHERE `id` = ?";
+    $sql = "UPDATE `items` SET `artist` = ?, `rating` = ?, `interest` = ?, `comment` = ? WHERE `id` = ?";
     $stmt = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($stmt, $sql);
-    mysqli_stmt_bind_param($stmt, "siii", $artist, $rating, $interest, $id);
+    mysqli_stmt_bind_param($stmt, "siisi", $artist, $rating, $interest, $comment, $id);
 
     return mysqli_stmt_execute($stmt);
 }

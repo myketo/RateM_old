@@ -27,6 +27,11 @@ $item = getArtistById($_GET['id']);
         </select>
     </label>
 
+    <label for='comment'>
+        Comment: 
+        <textarea id='comment' name='comment' placeholder='Insert comment here...'></textarea>
+    </label>
+
     <input type='hidden' name='id' value='<?=$item['id']?>'>
     <input type='submit' name='submitEdit' value='Edit'>
 </form>
