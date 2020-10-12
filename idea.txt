@@ -2,8 +2,9 @@
 >~artysta~ + gatunek + ~ocena~ + ~zainteresowanie~
 >~system oceniania~
 >statystyki/wykresy
->sortowanie: po artystach, po ocenach, po zainteresowaniu, po dacie dodania
->kolumna na komentarz
->wyszukaj na liście
+>~sortowanie: po artystach, po ocenach~, po zainteresowaniu, po dacie dodania
+>~sortowanie przez naciśnięcie na nazwę kolumny (albo panel z opcjami?)~
+>~kolumna na komentarz~
+>wyszukaj na liście (expended search z opcjami?)
 >tworzenie kont użytkowników
 >porównywanie listy do innych użytkowników (po gatunkach albo artystach)

@@ -63,23 +63,27 @@ function deleteArtist($id)
     return mysqli_stmt_execute($stmt);
 }
 
-function getAllItems()
+function getAllItems($order = "id", $direction = "ASC")
 {
+    $order = strtolower($order);
+    $direction = strtoupper($direction);
+    if(($direction != "ASC") && ($direction != "DESC")) return;
+    
     global $conn;
 
-    $sql = "SELECT * FROM `items`;";
+    $sql = "SELECT * FROM `items` ORDER BY `$order` $direction;";
     $result = mysqli_query($conn, $sql);
-
     if(!$result) return;
-
+    
     $rows = [];
+    $i = 0;
     while($row = mysqli_fetch_array($result))
     {
         $row['interest'] = "assets/interest/{$row['interest']}.png";
         if($row['rating'] == 0) $row['rating'] = "";
-        $rows[] = $row;
+        $rows[$i] = $row;
+        $i++;
     }
-
     return $rows;
 }
 

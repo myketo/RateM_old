@@ -29,7 +29,7 @@ $item = getArtistById($_GET['id']);
 
     <label for='comment'>
         Comment: 
-        <textarea id='comment' name='comment' placeholder='Insert comment here...'></textarea>
+        <textarea id='comment' name='comment' placeholder='Insert comment here...'><?=$item['comment']?></textarea>
     </label>
 
     <input type='hidden' name='id' value='<?=$item['id']?>'>

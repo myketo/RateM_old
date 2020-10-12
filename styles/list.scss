@@ -1,18 +1,14 @@
 .list{
     display: flex;
-
+    
     .show{
-        border: 1px solid black;
-        border-collapse: collapse;
-        box-sizing: border-box;
-
-        td,
-        th{
-            border: 1px solid black;
-
-            img.icon{
-                height: 20px;
-                // margin-top: 5px;
+        .list-table{
+            tr{
+                td{
+                    img.icon{
+                        height: 20px;
+                    }
+                }
             }
         }
     }
