@@ -1,6 +1,8 @@
 <?php $items = getAllItems(); ?>
 
 <div class='show'>
+    <input type='text' placeholder='Search...' class='search'>
+
     <table class='tablesorter list-table'>
         <thead>
             <tr>
@@ -13,7 +15,7 @@
                 <th class='edit'>Edit</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class='list-table-body'>
         <?php for($i = 0; $i < count($items); $i++){ ?>
             <tr>
                 <td><?=$i+1?></td>
