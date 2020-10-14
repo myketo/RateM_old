@@ -63,28 +63,38 @@ function deleteArtist($id)
     return mysqli_stmt_execute($stmt);
 }
 
-function getAllItems($order = "id", $direction = "ASC")
+function getItems()
 {
-    $order = strtolower($order);
-    $direction = strtoupper($direction);
-    if(($direction != "ASC") && ($direction != "DESC")) return;
-    
     global $conn;
 
-    $sql = "SELECT * FROM `items` ORDER BY `$order` $direction;";
+    $sql = "SELECT * FROM `items`;";
     $result = mysqli_query($conn, $sql);
     if(!$result) return;
     
     $rows = [];
     $i = 0;
+
     while($row = mysqli_fetch_array($result))
     {
         $row['interest'] = "assets/interest/{$row['interest']}.png";
         if($row['rating'] == 0) $row['rating'] = "";
+        $row['status'] = boolval($row['rating']);
         $rows[$i] = $row;
         $i++;
     }
     return $rows;
+}
+
+function countItems($items = [])
+{
+    $count = 
+        ['all' => count($items),
+        'rated' => 0,
+        'unrated' => 0];
+
+    foreach($items as $item) $item['status'] ? $count['rated']++ : $count['unrated']++;
+
+    return $count;
 }
 
 function getArtistById($id)
