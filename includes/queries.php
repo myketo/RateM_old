@@ -79,22 +79,11 @@ function getItems()
         $row['interest'] = "assets/interest/{$row['interest']}.png";
         if($row['rating'] == 0) $row['rating'] = "";
         $row['status'] = boolval($row['rating']);
+        $row['date'] = getTimeAdded($row['created_at']);
         $rows[$i] = $row;
         $i++;
     }
     return $rows;
-}
-
-function countItems($items = [])
-{
-    $count = 
-        ['all' => count($items),
-        'rated' => 0,
-        'unrated' => 0];
-
-    foreach($items as $item) $item['status'] ? $count['rated']++ : $count['unrated']++;
-
-    return $count;
 }
 
 function getArtistById($id)

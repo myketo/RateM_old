@@ -13,13 +13,12 @@ $count = countItems($items);
     <table class='tablesorter list-table'>
         <thead>
             <tr>
-                <th>Nr</th>
-                <th>Artist</th>
-                <th>Rating</th>
-                <th>Interest</th>
-                <th>Comment</th>
-                <th>Delete</th>
-                <th>Edit</th>
+                <th class='nr'>Nr</th>
+                <th class='artist'>Artist</th>
+                <th class='rating'>Rating</th>
+                <th class='interest'>Interest</th>
+                <th class='comment'>Comment</th>
+                <th class='date'>Date</th>
             </tr>
         </thead>
         <tbody class='list-table-body'>
@@ -27,11 +26,12 @@ $count = countItems($items);
             <tr>
                 <td><?=$i+1?></td>
                 <td><?=$items[$i]['artist']?></td>
-                <td class='rating'><?=$items[$i]['rating']?></td>
+                <td class='rating_value'><?=$items[$i]['rating']?></td>
                 <td><img src='<?=$items[$i]['interest']?>' class='icon'></td>
                 <td><?=$items[$i]['comment']?></td>
-                <td><a href='includes/list/delete.php?id=<?=$items[$i]['id']?>'>Delete</a></td>
-                <td><a href='list/edit/<?=$items[$i]['id']?>'>Edit</a></td>
+                <td><?=$items[$i]['date']?></td>
+                <!-- <td><a href='includes/list/delete.php?id=<?=$items[$i]['id']?>'>Delete</a></td>
+                <td><a href='list/edit/<?=$items[$i]['id']?>'>Edit</a></td> -->
             </tr>
         <?php } ?>
         </tbody>

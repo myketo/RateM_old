@@ -13,7 +13,6 @@ function parseUrl()
     }
 }
 
-
 function title($url = [])
 {
     $default = "RateM";
@@ -59,4 +58,36 @@ function showErrorAndSuccessMsg()
     echo "</ul>";
 
     unset($_SESSION['errors']);
+}
+
+function countItems($items = [])
+{
+    $count = 
+        ['all' => count($items),
+        'rated' => 0,
+        'unrated' => 0];
+
+    foreach($items as $item) $item['status'] ? $count['rated']++ : $count['unrated']++;
+
+    return $count;
+}
+
+function getTimeAdded($created_at)
+{
+    $origin = date_create($created_at);
+    $target = date_create('now');
+    $interval = date_diff($origin, $target);
+
+    $mins = $interval->format('%i');
+    $hours = $interval->format('%h');
+    $days = $interval->format('%d');
+    $date = $origin->format('d-m G:i');
+
+    if($hours == 0){
+        return "$mins minutes ago";
+    }elseif($days == 0){
+        return "$hours hours ago";
+    }else{
+        return $date;
+    }
 }

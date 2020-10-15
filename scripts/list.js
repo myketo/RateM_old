@@ -3,7 +3,7 @@ $(function() {
         sortList: [[0,0]],
         emptyTo: "none",
         headers: {
-            '.interest, .delete, .edit': {
+            '.interest, .date': {
                 sorter: false
             }
         }
@@ -22,11 +22,11 @@ $(document).ready(function(){
         var value = $(this).attr('class');
 
         if(value == "unrated"){
-            $(".rating").filter(function(){
+            $(".rating_value").filter(function(){
                 $(this).parent().toggle($(this).text() == "")
             });
         }else if(value == "rated"){
-            $(".rating").filter(function(){
+            $(".rating_value").filter(function(){
                 $(this).parent().toggle($(this).text() != "")
             });
         }else{
