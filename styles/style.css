@@ -12,6 +12,13 @@
 .list .show .list-table tr td img.icon {
   height: 20px;
 }
+.list .show .list-table tr .hidden {
+  display: none;
+}
+.list .show .list-table tr:hover td {
+  background-color: lightgray;
+  display: table-cell;
+}
 .list .add,
 .list .edit {
   display: flex;

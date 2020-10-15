@@ -30,8 +30,8 @@ $count = countItems($items);
                 <td><img src='<?=$items[$i]['interest']?>' class='icon'></td>
                 <td><?=$items[$i]['comment']?></td>
                 <td><?=$items[$i]['date']?></td>
-                <!-- <td><a href='includes/list/delete.php?id=<?=$items[$i]['id']?>'>Delete</a></td>
-                <td><a href='list/edit/<?=$items[$i]['id']?>'>Edit</a></td> -->
+                <td class='hidden'><a href='includes/list/delete.php?id=<?=$items[$i]['id']?>'>Delete</a></td>
+                <td class='hidden'><a href='list/edit/<?=$items[$i]['id']?>'>Edit</a></td>
             </tr>
         <?php } ?>
         </tbody>

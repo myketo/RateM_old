@@ -9,6 +9,15 @@
                         height: 20px;
                     }
                 }
+
+                .hidden{
+                    display: none;
+                }
+
+                &:hover td{
+                    background-color: lightgray;
+                    display: table-cell;
+                }
             }
         }
     }

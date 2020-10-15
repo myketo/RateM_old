@@ -15,3 +15,4 @@
 >Show more do listy (inifnite scrolling) albo paginacja
 >delete i edit pojawiają się po najechaniu/kliknięciu, albo delete schować do edit i dać ikonę na link
 >sticky pasek u góry zawierający nazwy kolumn albo wyszukiwarkę i link do dodawania
+>dać formy pojedyncze do daty
