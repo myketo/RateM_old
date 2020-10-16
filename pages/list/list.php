@@ -39,7 +39,7 @@ $count = countItems($items);
             <td colspan='8'><a href='list/add'>Add Artist</a></td>
         </tr> -->
     </table>
-
+    <script src='scripts/tablesorter/jquery.tablesorter.widgets.js'></script>
     <script src='scripts/list.js'></script>
     <?php showErrorAndSuccessMsg(); ?>
 </div>

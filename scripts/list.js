@@ -2,10 +2,16 @@ $(function() {
     $(".list-table").tablesorter({
         sortList: [[0,0]],
         emptyTo: "none",
+        widthFixed : true,
+        showProcessing: true,
         headers: {
             '.interest, .date': {
                 sorter: false
             }
+        }, 
+        widgets: [ 'stickyHeaders' ],
+        widgetOptions: {
+          cssStickyHeaders_attachTo: null
         }
     });
 });

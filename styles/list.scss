@@ -5,18 +5,21 @@
         .list-table{
             tr{
                 td{
+                    padding: 1.5vh 1.5vw;
+                    min-width: 7vw;
+
                     img.icon{
                         height: 20px;
                     }
                 }
 
                 .hidden{
-                    display: none;
+                    visibility: hidden;
                 }
 
                 &:hover td{
                     background-color: lightgray;
-                    display: table-cell;
+                    visibility: visible;
                 }
             }
         }

@@ -84,9 +84,9 @@ function getTimeAdded($created_at)
     $date = $origin->format('d-m G:i');
 
     if($hours == 0){
-        return "$mins minutes ago";
+        return $mins . ($mins == 1 ? " minute ago" : " minutes ago");
     }elseif($days == 0){
-        return "$hours hours ago";
+        return $hours . ($hours == 1 ? " hour ago" : " hours ago");
     }else{
         return $date;
     }

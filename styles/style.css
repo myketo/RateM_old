@@ -9,15 +9,19 @@
 .list {
   display: flex;
 }
+.list .show .list-table tr td {
+  padding: 1.5vh 1.5vw;
+  min-width: 7vw;
+}
 .list .show .list-table tr td img.icon {
   height: 20px;
 }
 .list .show .list-table tr .hidden {
-  display: none;
+  visibility: hidden;
 }
 .list .show .list-table tr:hover td {
   background-color: lightgray;
-  display: table-cell;
+  visibility: visible;
 }
 .list .add,
 .list .edit {
