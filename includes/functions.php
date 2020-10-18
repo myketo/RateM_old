@@ -72,8 +72,10 @@ function countItems($items = [])
     return $count;
 }
 
-function getTimeAdded($created_at)
+function getTimeAgo($created_at)
 {
+    if(!$created_at) return;
+
     $origin = date_create($created_at);
     $target = date_create('now');
     $interval = date_diff($origin, $target);
@@ -83,11 +85,14 @@ function getTimeAdded($created_at)
     $days = $interval->format('%d');
     $date = $origin->format('d-m G:i');
 
-    if($hours == 0){
-        return $mins . ($mins == 1 ? " minute ago" : " minutes ago");
-    }elseif($days == 0){
-        return $hours . ($hours == 1 ? " hour ago" : " hours ago");
-    }else{
-        return $date;
-    }
+    return $days == 0 ? ($hours == 0 ? ($mins . ($mins == 1 ? " minute ago" : " minutes ago")) : ($hours . ($hours == 1 ? " hour ago" : " hours ago"))) : $date;
+}
+
+function getRandomUnrated()
+{
+    $items = getAllUnrated();
+    
+    $rand = rand(0, count($items)-1);
+
+    return $items[$rand];
 }

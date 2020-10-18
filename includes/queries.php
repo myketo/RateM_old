@@ -43,10 +43,14 @@ function editArtist($id, $artist, $rating, $interest, $comment)
 {
     global $conn;
 
-    $sql = "UPDATE `items` SET `artist` = ?, `rating` = ?, `interest` = ?, `comment` = ? WHERE `id` = ?";
+    $rated_at = date('Y-m-d H:i:s');
+    if($rating == ""){ $rating = NULL; $rated_at = NULL; }
+    if($comment == "") $comment = NULL;
+
+    $sql = "UPDATE `items` SET `artist` = ?, `rating` = ?, `interest` = ?, `comment` = ?, `rated_at` = ? WHERE `id` = ?";
     $stmt = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($stmt, $sql);
-    mysqli_stmt_bind_param($stmt, "siisi", $artist, $rating, $interest, $comment, $id);
+    mysqli_stmt_bind_param($stmt, "siissi", $artist, $rating, $interest, $comment, $rated_at, $id);
 
     return mysqli_stmt_execute($stmt);
 }
@@ -79,7 +83,8 @@ function getItems()
         $row['interest'] = "assets/interest/{$row['interest']}.png";
         if($row['rating'] == 0) $row['rating'] = "";
         $row['status'] = boolval($row['rating']);
-        $row['date'] = getTimeAdded($row['created_at']);
+        $row['date'] = getTimeAgo($row['created_at']);
+        $row['rated'] = getTimeAgo($row['rated_at']);
         $rows[$i] = $row;
         $i++;
     }
@@ -103,4 +108,23 @@ function getArtistById($id)
     if($item['rating'] == 0) $item['rating'] = "";
     
     return $item;
+}
+
+function getAllUnrated()
+{
+    global $conn;
+
+    $sql = "SELECT * FROM `items` WHERE `rating` IS NULL;";
+    $result = mysqli_query($conn, $sql);
+    if(!$result) return;
+
+    $rows = [];
+    $i = 0;
+    while($row = mysqli_fetch_array($result)){
+        $row['date'] = getTimeAgo($row['created_at']);
+        $rows[$i] = $row;
+        $i++;
+    }
+
+    return $rows;
 }

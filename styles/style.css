@@ -9,11 +9,11 @@
 .list {
   display: flex;
 }
-.list .show .list-table tr td {
+.list .show .list-table tr td, .list .show .list-table tr th {
   padding: 1.5vh 1.5vw;
   min-width: 7vw;
 }
-.list .show .list-table tr td img.icon {
+.list .show .list-table tr td img.icon, .list .show .list-table tr th img.icon {
   height: 20px;
 }
 .list .show .list-table tr .hidden {

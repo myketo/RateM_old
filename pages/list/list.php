@@ -4,6 +4,7 @@ $count = countItems($items);
 ?>
 
 <div class='show'>
+    <a href='list/random'>Randomize</a>
     <a href='list/add'>Add Artist</a><br>
     <button class='all'>ALL[<?=$count['all']?>]</button>
     <button class='rated'>RATED[<?=$count['rated']?>]</button>
