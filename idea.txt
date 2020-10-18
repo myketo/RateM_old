@@ -10,11 +10,12 @@
 >~delete i edit pojawiają się po najechaniu~ /kliknięciu, albo delete schować do edit i dać ikonę na link
 >~sticky pasek u góry zawierający nazwy kolumn~ (albo wyszukiwarkę i link do dodawania)
 >~dać formy pojedyncze do daty~
+>~przycisk do losowania artysty z unrated~
+>~zapisywanie daty ocenienia~
+>~przycisk "back to top"~
 
 >statystyki/wykresy
 >tworzenie kont użytkowników
 >porównywanie listy do innych użytkowników (po gatunkach albo artystach)
->przycisk do losowania artysty z unrated
 >wyświetlanie na profilu usera ostatnio dodanych rated/unrated
->Show more do listy (inifnite scrolling) albo paginacja
->przycisk "back to top"
+>Show more do listy (inifnite scrolling) albo paginacja ((wymagają zmiany w sortowaniu i wyszukiwaniu, agh))

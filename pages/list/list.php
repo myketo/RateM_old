@@ -4,6 +4,8 @@ $count = countItems($items);
 ?>
 
 <div class='show'>
+    <a id='scroll-btn'>&uarr;</a>
+
     <a href='list/random'>Randomize</a>
     <a href='list/add'>Add Artist</a><br>
     <button class='all'>ALL[<?=$count['all']?>]</button>

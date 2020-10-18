@@ -16,6 +16,7 @@ $(function() {
     });
 });
 
+
 $(document).ready(function(){
     $(".search").on("keyup", function(){
         var value = $(this).val().toLowerCase();
@@ -39,4 +40,14 @@ $(document).ready(function(){
             $("tr").show();
         }
     });
+});
+
+
+$(window).scroll(function(){
+    $(window).scrollTop() > 20 ? $("#scroll-btn").addClass('display') : $("#scroll-btn").removeClass('display');
+});
+
+$("#scroll-btn").on('click', function(e){
+    e.preventDefault();
+    $('html, body').animate({scrollTop: 0}, '300');
 });
