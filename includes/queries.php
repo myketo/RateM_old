@@ -128,3 +128,15 @@ function getAllUnrated()
 
     return $rows;
 }
+
+function amountByDate($column)
+{
+    if($column != "rated_at" && $column != "created_at" && $column != "updated_at") return;
+
+    global $conn;
+
+    $sql = "SELECT DATE(`$column`) AS `date`, COUNT(*) AS `amount` FROM `items` WHERE `$column` IS NOT NULL GROUP BY DATE(`$column`) LIMIT 5;";
+    $result = mysqli_query($conn, $sql);
+
+    return $result;
+}

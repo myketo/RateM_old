@@ -13,9 +13,10 @@
 >~przycisk do losowania artysty z unrated~
 >~zapisywanie daty ocenienia~
 >~przycisk "back to top"~
+>~statystyki/wykresy (progress, ratings, recently added/updated)~
 
->statystyki/wykresy
 >tworzenie kont użytkowników
 >porównywanie listy do innych użytkowników (po gatunkach albo artystach)
 >wyświetlanie na profilu usera ostatnio dodanych rated/unrated
 >Show more do listy (inifnite scrolling) albo paginacja ((wymagają zmiany w sortowaniu i wyszukiwaniu, agh))
+>ocenianie albumów!

@@ -96,3 +96,17 @@ function getRandomUnrated()
 
     return $items[$rand];
 }
+
+function checkStats()
+{
+    $items = getItems();
+    $stats = countItems($items);
+
+    $stats['progress'] = round(($stats['rated'] / $stats['all']) * 100, 2);
+
+    for($i = 0; $i < 10; $i++) $stats[$i] = 0;
+
+    foreach($items as $item) if($item['rating']) $stats[$item['rating']-1]++;
+
+    return $stats;
+}

@@ -7,6 +7,8 @@ if(!isset($_GET['id']) || !checkForArtistById($_GET['id'])){
 $item = getArtistById($_GET['id']);
 ?>
 
+<a href='list'>List</a>
+
 <form method='POST' class='list edit' action='includes/list/edit.php'>
     <label for='artist'>
         Artist: 
